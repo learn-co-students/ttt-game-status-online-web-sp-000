@@ -22,10 +22,6 @@ def won?(board)
         board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]] && position_taken?(board,combo[2])
         #also note: this will return the combo for ANYTHING non-empty that gets three in a row.
         ##it's not specific to just X and O. but we're assuming the board is not full of other letters.
-        ##this is ugly, but it works specific to just X and O and doesn't need the position_taken? function:
-        ##((board[combo[0]] == "X" && board[combo[1]] == "X" && board[combo[2]] == "X") || (board[combo[0]] == "O" && board[combo[1]] == "O"
-        ##&& board[combo[2]] == "O"))
-
     end
 end
 
