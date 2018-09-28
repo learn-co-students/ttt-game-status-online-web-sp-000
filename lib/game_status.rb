@@ -20,8 +20,8 @@ def won?(board)
     WIN_COMBINATIONS.find do |combo|
         ##all positions in the combo are the same, and all are non-empty (if one is, all are, since all must be same)
         board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]] && position_taken?(board,combo[2])
-        #also note: this will return the combo for ANYTHING non-empty that gets three in a row.
-        ##it's not specific to just X and O. but we're assuming the board is not full of other letters.
+        #also note: this will return the combo for ANYTHING that's three of the same non-empty value that gets three in a row.
+        ##it's not specific to just X and O. 
     end
 end
 
