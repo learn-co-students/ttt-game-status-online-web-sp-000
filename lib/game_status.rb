@@ -23,12 +23,28 @@ def won?(board)
 
   if position_1 == "X" && position_2 == "X" && position_3 == "X" || position_1 == "O" && position_2 == "O" && position_3 == "O"
     return win_combination
-  else
-    false
   end
-end
+  end
+    false
 end
 
 def full?(board)
   board.all? { |i| i == "X" || i == "O"}
+end
+
+
+def draw?(board)
+  if board == draw_board
+    true
+  else board == x_diagonal_won || board == incomplete_board
+    return false
+    end
+end
+
+def over?(board)
+  if board == draw_board || board == won_board
+    true
+  else board == inprogress_board
+    return false
+  end
 end
