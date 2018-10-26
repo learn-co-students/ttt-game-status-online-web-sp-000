@@ -29,22 +29,19 @@ def won?(board)
 end
 
 def full?(board)
-  board.all? { |i| i == "X" || i == "O"}
+  board.all? { |i| i != " "}
 end
 
 
 def draw?(board)
-  if board == draw_board
-    true
-  else board == x_diagonal_won || board == incomplete_board
-    return false
-    end
+  full?(board) && !won?(board)
+ end
+
+ def over?(board)
+   draw?(board) || won?(board) || full?(board)
 end
 
-def over?(board)
-  if board == draw_board || board == won_board
-    true
-  else board == inprogress_board
-    return false
-  end
+def winner(board)
+  token = ["X", "O"]
+won?(board) == token[0] ||won?(board) == token[1] || !won?(board) == nil
 end
