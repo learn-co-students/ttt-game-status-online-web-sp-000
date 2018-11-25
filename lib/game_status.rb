@@ -15,55 +15,86 @@ WIN_COMBINATIONS = [
   [0,4,8], #diagonal 1
   [2,4,6] # diagonal 2
 ]
- def won?(board)
-  #board.each do |value|
-#  "#{value}" == " "  ? false : true
-#  end
-  if board[0] == "X" && board[1] == "X" && board[2] == "X"
-    WIN_COMBINATIONS[0] #top row X
-  elsif board[0] == "O" && board[1] == "0" && board[2] == "O"
-    WIN_COMBINATIONS[0] #top row O
 
-  elsif board[0] == "X" && board[3] == "X" && board[6] == "X"
-    WIN_COMBINATIONS[3] #left column x
-  elsif board[0] == "O" && board[3] == "O" && board[6] == "O"
-    WIN_COMBINATIONS[3] #left column o
 
-  elsif board[0] == "X" && board[4] == "X" && board[8] == "X"
-    WIN_COMBINATIONS[6] # left diagonal x
-  elsif board[0] == "O" && board[4] == "O" && board[8] == "O"
-    WIN_COMBINATIONS[6] # left diagonal o
-
-  elsif board[1] == "X" && board[4] == "X" && board[7] == "X"
-    WIN_COMBINATIONS[4] #middle column x
-  elsif board[1] == "O" && board[4] == "O" && board[7] == "O"
-    WIN_COMBINATIONS[4] #middle column o
-
-  elsif board[2] == "X" && board[4] == "X" && board[6] == "X"
-    WIN_COMBINATIONS[7] #right diagonal x
-  elsif board[2] == "O" && board[4] == "O" && board[6] == "O"
-    WIN_COMBINATIONS[7] #right diagonal o
-
-  elsif board[2] == "X" && board[5] == "X" && board[8] == "X"
-    WIN_COMBINATIONS[5] #right column x
-  elsif board[2] == "O" && board[5] == "O" && board[8] == "O"
-    WIN_COMBINATIONS[5] #right column o
-
-  elsif board[3] == "X" && board[4] == "X" && board[5] == "X"
-    WIN_COMBINATIONS[1] #middle row x
-  elsif board[3] == "O" && board[4] == "O" && board[5] == "O"
-    WIN_COMBINATIONS[1] #middle row o
-  elsif board[6] == "X" && board[7] == "X" && board[8] == "X"
-    WIN_COMBINATIONS[2] # bottom row x
-  elsif board[6] == "O" && board[7] == "O" && board[8] == "O"
-    WIN_COMBINATIONS[2] # bottom row o
-else
- false
+# won
+def won?(board)
+  WIN_COMBINATIONS.each do |win_combination|
+    if position_taken?(board, win_combination[0]) == true
+      if board[win_combination[0]] == board[win_combination[1]] && board[win_combination[0]] == board[win_combination[2]]
+        return win_combination
+      end
+      else
+        false
+      end
+    end
+    false
   end
- end
+#won
 
 
- def full?(board)
-  board.include?(" ") ? false : true
 
+#full
+
+def full?(board)
+board.none?{|value| "#{value}" == " " }
 end
+
+
+#draw
+def draw?(board)
+  if full?(board) == true && won?(board) == false
+  true
+  else full?(board) == false
+    false
+  end
+end
+
+
+#over
+def over?(board)
+won?(board) || draw?(board) || full?(board) ? true : false
+end
+
+
+#winner
+def winner(board)
+  if board[0] == "X" && board[1] == "X" && board[2] == "X"
+    return "X"
+  elsif  board[0] == "O" && board[1] == "O" && board[2] == "O"
+      return "O"
+  elsif board[3] == "X" && board[4] == "X" && board[5] == "X"
+    return "X"
+  elsif  board[3] == "O" && board[4] == "O" && board[5] == "O"
+      return "O"
+  elsif  board[6] == "X" && board[7] == "X" && board[8] == "X"
+          return "X"
+  elsif  board[6] == "O" && board[7] == "O" && board[8] == "O"
+        return "O"
+      elsif  board[0] == "X" && board[3] == "X" && board[6] == "X"
+              return "X"
+      elsif  board[0] == "O" && board[3] == "O" && board[6] == "O"
+            return "O"
+          elsif  board[1] == "X" && board[4] == "X" && board[7] == "X"
+                  return "X"
+          elsif  board[1] == "O" && board[4] == "O" && board[7] == "O"
+                return "O"
+              elsif  board[2] == "X" && board[5] == "X" && board[8] == "X"
+                      return "X"
+              elsif  board[2] == "O" && board[5] == "O" && board[8] == "O"
+                    return "O"
+                  elsif  board[0] == "X" && board[4] == "X" && board[8] == "X"
+                          return "X"
+                  elsif  board[0] == "O" && board[4] == "O" && board[8] == "O"
+                        return "O"
+                      elsif  board[2] == "X" && board[4] == "X" && board[6] == "X"
+                              return "X"
+                      elsif  board[2] == "O" && board[4] == "O" && board[6] == "O"
+                            return "O"
+
+  end
+end
+
+
+
+#winner
