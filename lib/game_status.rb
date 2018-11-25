@@ -58,7 +58,7 @@ end
 
 
 #winner
-def winner(board)
+#def winner(board)
   if board[0] == "X" && board[1] == "X" && board[2] == "X"
     return "X"
   elsif  board[0] == "O" && board[1] == "O" && board[2] == "O"
@@ -98,3 +98,8 @@ end
 
 
 #winner
+def winner(board)
+  if winning_combo = won?(board)
+    board[winning_combo.first]
+  end
+end
