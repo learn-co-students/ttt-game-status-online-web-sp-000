@@ -19,20 +19,18 @@ end
 def full?(board)
   board.each do |space|
     if space == " "
-      return false
+      false
     end
   end  
 end
 
 def draw?(board)
-  board.each do |space|
-    if won?(board)
-      return false
-    elsif full?(board)
-      return true
+    if full?(board) && !won?(board)
+      true
+    else 
+      false
   end  
  end
-end
 
 def over?(board)
    if draw?(board) || won?(board) || full?(board)
@@ -47,7 +45,7 @@ def winner?(board)
     return "X"
   elsif won?(board) == "O"
     return "O"
-  else false
+  else nil
   end
  end
     
