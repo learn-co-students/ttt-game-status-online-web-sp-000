@@ -1,4 +1,3 @@
-# Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
@@ -19,33 +18,34 @@ end
 def full?(board)
   board.each do |space|
     if space == " "
-      false
-    end
-  end  
+     return false  
+    end 
+  end
 end
 
 def draw?(board)
     if full?(board) && !won?(board)
-      true
+      return true
     else 
-      false
+      return false
   end  
  end
 
 def over?(board)
    if draw?(board) || won?(board) || full?(board)
-     true
-   else 
-     false
-  end
- end
+     return true
+      else 
+        return false
+      end
+   end
  
-def winner?(board)
-  if won?(board) == "X" 
-    return "X"
-  elsif won?(board) == "O"
-    return "O"
-  else nil
+def winner(board)
+  combo = won?(board)
+    if !won?(board) 
+      return nil
+     elsif board[combo[0]] == "X"
+        return "X"
+     elsif board[combo[0]] == "O"
+        return "O"
+    end
   end
- end
-    
