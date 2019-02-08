@@ -1,4 +1,5 @@
 require_relative '../lib/game_status.rb'
+require "pry"
 
 describe "./lib/game_status.rb" do
   describe 'WIN_COMBINATIONS' do
@@ -121,12 +122,12 @@ describe "./lib/game_status.rb" do
   describe '#over?' do
     it 'returns true for a draw' do
       board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
-
       expect(over?(board)).to be_truthy
     end
 
     it 'returns true for a won game when the board is full' do
       board = ["X", "O", "X", "O", "X", "X", "O", "O", "X"]
+
 
       expect(over?(board)).to be_truthy
     end
