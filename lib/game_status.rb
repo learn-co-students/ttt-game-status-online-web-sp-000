@@ -24,9 +24,9 @@ def full?(board)
 end
 
 def won?(board)
-  if(!(board.include?("X")||board.include?("O")))
-    return false
-  end
+#  if(!(board.include?("X")||board.include?("O")))
+#    return false
+#  end
   WIN_COMBINATIONS.any? do |wins|
     if((wins.all? do |space| board[space]=="X" end)||(wins.all? do |space| board[space]=="O" end))
       return wins
