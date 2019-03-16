@@ -25,25 +25,24 @@ WIN_COMBINATIONS = [
       end 
   end 
 
-def full? (board)
-  
-   if !won?(board) && board[index] != " "
-      true 
-   else 
-      false 
-   end   
-end 
+  def full? (board)
+    board.all? {|index| index == "X" || index=="O"}
+  end 
    
+  def draw?(board)
+     full?(board) && !won?(board)
+  end 
   
-   # position_1 = board[win_index_1]
-  #  position_2 = board[win_index_2]
-   # position_3 = board[win_index_3]
-    
- ## if position_1 == "X" && position_2 == "X" && position_3 == "X"
-   ## return WIN_COMBINATION
-##  else 
-  #  false 
-   # end
+  def over?(board)
+     draw?(board) ||won?(board)
+  end    
   
+  def winner(board)
+    if !won?(board)
+      nil 
+    else
+      board[won?(board)[0]]
+    end 
+  end 
   
   
