@@ -1,4 +1,5 @@
 # Helper Method
+require 'pry'
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
@@ -17,28 +18,23 @@ WIN_COMBINATIONS = [
   ]
   
   def won?(board)
-      win_combo = WIN_COMBINATIONS.select do |combo|
-        combo.all? { |index| board[index] == "X" } ||
-        combo.all? { |index| board[index] == "O" }
-      end 
-      
-      if @empty_board
-        false 
+          WIN_COMBINATIONS.detect do |combo| 
+          board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]] && 
+          position_taken?(board, combo[0])
+    
       end 
   end 
 
-def full (board)
-  full_board = ["X" , "O" , "X" , "O" , "X" , "O", "X" , "O"]
-  incomplete_board = ["X" , " " , " " , "O" , "X" , "O", " ", " "]
-  @empty_board = [" ", " ", " ", " ", " ", " ", " ", " "]
-  if board == full_board
-    return true 
-   if board == incomplete_board 
-     #|| board == empty_board
-     return false 
-  end 
-  end
-end
+def full? (board)
+  
+   if !won?(board) && board[index] != " "
+      true 
+   else 
+      false 
+   end   
+end 
+   
+  
    # position_1 = board[win_index_1]
   #  position_2 = board[win_index_2]
    # position_3 = board[win_index_3]
