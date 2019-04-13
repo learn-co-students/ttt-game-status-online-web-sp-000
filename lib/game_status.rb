@@ -38,11 +38,7 @@ end
 #test if the board is full
 def full? (board)
   #if there is a blank space, returns false, otherwise true
-  if !(board.detect {|posit| posit == " "})
-    return true
-  else
-    return false
-  end
+  !(board.detect {|posit| posit == " "})
 end
   
 #test if there is a draw
