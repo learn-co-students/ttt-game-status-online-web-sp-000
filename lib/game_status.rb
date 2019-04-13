@@ -44,22 +44,33 @@ end
 #test if there is a draw
 def draw? (board)
   if full?(board) == true
-    if won?(board) == false
-      return true
-    end
-  else
-    return false
+    !won?(board)
   end
 end
 
 #test if game is over
 def over? (board)
-  if draw? (board) == true
+  if draw? (board)
     return true
-  elsif won? (board) == true
+  elsif won? (board)
     return true
-  else
-    return false
   end
 end
-     
+
+#returns the winner
+def winner (board)
+  if won?(board)
+    winrow = won?(board)
+    posit = [" ", " ", " "]
+    counter = 0
+    winrow.each do |windex|
+      posit[counter] = board[windex]
+      counter += 1
+    end
+    if posit.all? {|var| var == "X"}
+      return "X"
+    elsif posit.all? {|var| var == "O"}
+      return "O"
+    end
+  end
+end
