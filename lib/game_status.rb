@@ -21,9 +21,9 @@ def won?(board)
     win1=combination[0]
     win2=combination[1]
     win3=combination[2]
-    # looping and saving first 3 numbers in arrays to variables using indexes
+    # looping and saving first 3 numbers in each array to variables using [indexes]
     board[win1] == board[win2] && board[win2] == board[win3] && board[win1] != " "
-    # using variables with board array to check if they match
+    # using variables with board array numbers (winning numb) to check if they match
   end  
 end
 
