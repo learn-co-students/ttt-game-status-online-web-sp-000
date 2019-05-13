@@ -15,7 +15,7 @@ describe "./lib/game_status.rb" do
       expect(WIN_COMBINATIONS).to include_array([6,4,2])
     end
   end
-
+  
   describe "#won?" do
     it 'returns falsey for an empty board' do
       board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
