@@ -24,3 +24,14 @@ end
 def over?(board)
   won?(board) || full?(board)
 end
+
+def winner(board)
+  if won?(board)
+    won?(board).each do |winner|
+    winner == "X"
+    "X"
+    winner == "O"
+    "O"
+  end
+ end
+end
