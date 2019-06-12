@@ -26,13 +26,13 @@ def over?(board)
 end
 
 def winner(board)
-  if won?(board)
-   board[won?(board)].each do |winner|
-     if winner == "X"
-       puts "X"
-     elsif winner == "O"
-       puts "O"
-     end
-   end    
-  end
+    if won?(board)
+       board[won?(board)[1]]
+
+  #  board[won?(board)]. do |winner|
+  #    winner == "X"
+  #
+  #    winner == "O"
+    end
 end
+# end
