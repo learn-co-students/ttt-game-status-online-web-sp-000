@@ -20,9 +20,7 @@ end
 def draw?(board)
   full?(board) && !won?(board)
 end
-      # board[combo]end
 
-# board[WIN_COMBINATIONS[0][0]] == "X" && board[WIN_COMBINATIONS[0][1]] == "X" && board[WIN_COMBINATIONS[0][2]] == "X"
-#  WIN_COMBINATIONS[0]
-# end
-# [1,2,3].detect{|i| i.odd?} #=> 1
+def over?(board)
+  won?(board) || full?(board)
+end
