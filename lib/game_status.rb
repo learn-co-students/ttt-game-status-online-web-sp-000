@@ -27,11 +27,12 @@ end
 
 def winner(board)
   if won?(board)
-    won?(board).each do |winner|
-    winner == "X"
-    "X"
-    winner == "O"
-    "O"
+   board[won?(board)].each do |winner|
+     if winner == "X"
+       puts "X"
+     elsif winner == "O"
+       puts "O"
+     end
+   end    
   end
- end
 end
