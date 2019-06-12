@@ -17,6 +17,9 @@ def full?(board)
   end
 end
 
+def draw?(board)
+  full?(board) && !won?(board)
+end
       # board[combo]end
 
 # board[WIN_COMBINATIONS[0][0]] == "X" && board[WIN_COMBINATIONS[0][1]] == "X" && board[WIN_COMBINATIONS[0][2]] == "X"
