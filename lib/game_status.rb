@@ -24,3 +24,27 @@ def won?(board)
     position_taken?(board,combo[0]) && board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]]
 end
 end
+
+def full?(board)
+  if board.include?(" ")
+    return false
+  else 
+    return true
+end
+end
+
+def draw?(board)
+  full?(board) && !won?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board) || full?(board)
+end
+
+def winner(board)
+  if won?(board) == nil
+    return nil
+  else
+    board[won?(board)[0]]
+end
+end
