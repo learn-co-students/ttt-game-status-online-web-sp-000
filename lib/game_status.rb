@@ -21,13 +21,6 @@ def won?(board)
   end
 end
 
-# board = [" ", " ", " ", " ", " ", " ", " ", " ", " ",]
-# board = ["X", "X", "X", " ", " ", " ", " ", " ", " ",]
-# board = ["O", "O", "O", " ", " ", " ", " ", " ", " ",]
-# board = ["X", "X", "O", " ", " ", " ", " ", " ", " ",]
-#
-# win_array = [0,1,2]
-
 def full?(board)
   board.none? {|i| i == " "}
 end
