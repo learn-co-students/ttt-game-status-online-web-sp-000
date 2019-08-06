@@ -1,3 +1,4 @@
+require "pry"
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -39,13 +40,30 @@ end
  false
 end
 
+#def full?(board)
+  #board.none? do |space|
+  #space == " "
+  #end
+#end
+
 def full?(board)
-  board.each do |space|
-    check_space= space
-  if space != " "
-    return true
-  else
-    return false
+  board.all? do |space|
+  space != " "
   end
 end
+
+def draw?(board)
+  if full?(board) == true && won?(board) == false
+    true
+  end
+end
+
+def over?(board)
+ draw?(board) || won?(board)
+end
+
+def winner(board)
+  if won?(board)
+    board[won?(board)[0]]
+  end
 end
