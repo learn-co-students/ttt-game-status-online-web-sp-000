@@ -17,22 +17,41 @@ WIN_COMBINATIONS =
     ]
     
     def won?(board)
+      WIN_COMBINATIONS.each do |win_combination| 
+          
+          win_index_1 = win_combination[0]
+          win_index_2 = win_combination[1]
+          win_index_3 = win_combination[2]
+          
+          position_1 = board[win_index_1]
+          position_2 = board[win_index_2]
+          position_3 = board[win_index_3]
+          
+         # if positions 1, 2, 3 are strings or nil (#position_taken?)
+          #  false 
+          if  position_1 == "X" && position_2 == "X" && position_3 == "X" #if positions = X, return array
+            return win_combination
+          else false
+            
+          end
+    end
+  end
       #return false/nil if there is no win combination present in board
       #return winning indexes as array if there's a win 
       #use each or higher level iterator to return correct board indexes that created win
       #use helper method position_taken
       
-    def full?(board)
+    #def full?(board)
       #returns true if every element contains X or O, false if there's not an avail position
       
-    def draw?(board)
+    #def draw?(board)
       #returns true if board has not been won but is full, false if board is not won and not full, and false if board is won
       #will use above methods
       
-    def over?(board)
+   # def over?(board)
       #returns true if board has been won, is a draw, or is full
       #will use above methods
       
-    def winner(board)
+    #def winner(board)
       #returns token X or O who has won the game
       #uses methods above and their return values
