@@ -61,20 +61,11 @@ end
 end
   
 def winner(board)
-  over?(board)
-  won?(board)[0]
+  over?(board) #make sure it's over
+  won?(board)
+  index = won?(board)[0] #variable index = first unit of winning array
+    board[index] #retrieve value of that first unit
 end
 
-
-
-   
-   
-   #pull winning array, check to see if X or O is in first spot, return X or O accordingly
-   
-   
- 
-
-
-    #def winner(board)
-      #returns token X or O who has won the game
-      #uses methods above and their return values
+  #return a winning array
+  #isolate first variable, return its value of X or O
