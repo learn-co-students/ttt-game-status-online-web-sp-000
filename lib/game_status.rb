@@ -61,13 +61,19 @@ end
 end
   
 def winner(board)
- won?(board) #given a winning board,
- #return token X or O
-  
-  #detect board that includes X include?
- 
-   
+  over?(board)
+  won?(board)[0]
 end
+
+
+
+   
+   
+   #pull winning array, check to see if X or O is in first spot, return X or O accordingly
+   
+   
+ 
+
 
     #def winner(board)
       #returns token X or O who has won the game
