@@ -36,3 +36,13 @@ end
   end
   return false
 end
+
+def full?(board)
+  full?.each do |full_board|
+    if position_taken?
+      return true
+    else
+      return false
+  end
+  end
+end
