@@ -5,9 +5,31 @@ end
 
 # Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS = [
-  [0, 1, 2]
-  [3, 4, 5]
-  [6, 7, 8]
-  [0, 4, 8]
-  [1, 4, 7]
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 4, 8],
+  [1, 4, 7],
+  [6, 4, 2],
+  [0, 3, 6],
+  [2, 5, 8],
 ]
+
+def won?(board)
+  WIN_COMBINATIONS.each do |win_combo|
+
+
+    position_1 = win_combo[0]
+    position_2 = win_combo[1]
+    position_3 = win_combo[2]
+
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      return win_combo
+
+    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+      return win_combo
+
+end
+  end
+  return false 
+end
