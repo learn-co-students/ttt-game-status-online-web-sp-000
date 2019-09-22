@@ -38,11 +38,8 @@ end
 end
 
 def full?(board)
-  full?.each do |full_board|
-    if position_taken?
-      return true
-    else
-      return false
-  end
-  end
+  board.all? do |position|
+  position == "X" || position == "O"
+
 end
+  end
