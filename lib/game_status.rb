@@ -51,3 +51,11 @@ end
     return false
   end
 end
+
+def over?(board)
+  if won?(board) || draw?(board) || full?(board)
+    return true
+  else
+    return false
+  end 
+end
