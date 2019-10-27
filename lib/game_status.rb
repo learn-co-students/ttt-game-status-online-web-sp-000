@@ -80,12 +80,13 @@ WIN_COMBINATIONS = [
   
   def winner(board)
     idx = won?(board)
-    if !won?(board)
+    if !idx
       return nil 
     end 
-    if board[idx[0]] == "X"
+    if board[idx.first] == "X"
       "X" 
-    elsif board[idx[0]] == "O" 
+    # binding.pry
+    elsif board[idx.first] == "O" 
       "O"
     end 
   end 
