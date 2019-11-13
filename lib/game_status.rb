@@ -8,12 +8,8 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6],
    [1,4,7], [2,5,8], [0,4,8], [6,4,2]]
    
 def won?(board)
-  WIN_COMBINATIONS.each do |indexes|
-    if indexes.all?{|index| board[index] == "X"} || indexes.all?{|index| board[index] == "0"}
-      indexes
-    else
-      FALSE
-    end
+  WIN_COMBINATIONS.find do |indexes|
+    board[indexes[0]] == board[indexes[1]] && board[indexes[1]] == board[indexes[2]] && position_taken?(board, indexes[0])
   end
 end
 
