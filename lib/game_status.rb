@@ -9,7 +9,7 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6],
    
 def won?(board)
   WIN_COMBINATIONS.each do |indexes|
-    if indexes.all?{|index| index == "X"} || indexes.all?{|index| index == "0"}
+    if indexes.all?{|index| board[index] == "X"} || indexes.all?{|index| board[index] == "0"}
       indexes
     else
       FALSE
