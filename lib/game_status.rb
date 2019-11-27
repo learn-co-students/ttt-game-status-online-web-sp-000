@@ -16,6 +16,10 @@ WIN_COMBINATIONS = [
   [2,5,8]   #right column 
 ]
 
+# determines if the game is won or not 
+# return false for empty board or draw 
+# else returns an array of the winning combo 
+
 def won?(board)
   return false if board.all? { |index| index == " " || index == "" }
   winning_combo = [] 
@@ -31,11 +35,15 @@ def won?(board)
   end 
 end 
 
+# returns true is the board is full 
+
 def full?(board)
   board.all? do |index|
     index == "X" || index == "O"
   end
 end 
+
+# returns true if the board is full and has not been won 
 
 def draw?(board)
   if full?(board) && !won?(board)
@@ -45,6 +53,8 @@ def draw?(board)
   end 
  end 
 
+ # returns true if the game has been won, if the game is a draw or if the board is full 
+
 def over?(board)
   if draw?(board) || full?(board) || won?(board) 
     true 
@@ -52,6 +62,9 @@ def over?(board)
     false 
   end 
 end 
+
+# returns winner - "X" or "O" depending on which token won 
+# returns nil if there is no winner 
 
 def winner(board)
   if won?(board)
