@@ -66,4 +66,6 @@ def winner(board)
   end
 end
 
+puts "WINNNNERRRRRR"
+
 board = Array.new(9, " ")
