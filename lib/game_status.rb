@@ -2,6 +2,7 @@ require 'pry'
 
 # Helper Method
 def position_taken?(board, index)
+  binding.pry
   !(board[index].nil? || board[index] == " ")
 end
 
@@ -32,4 +33,8 @@ def won?(board)
       false
     end
   end
+end
+
+def full?(board)
+  board.all?{|i| position_taken?(board, i.to_i)}
 end
