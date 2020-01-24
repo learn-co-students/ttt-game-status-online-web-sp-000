@@ -43,10 +43,3 @@ def winner(board)
     board[win_index_1]
   end
 end
-
-
-
-
-
-
-
