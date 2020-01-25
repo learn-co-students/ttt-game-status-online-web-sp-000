@@ -2,8 +2,10 @@ require 'pry'
 
 # Helper Method
 def position_taken?(board, index)
-  binding.pry
   !(board[index].nil? || board[index] == " ")
+  #(Spot is nil OR spot is SPACE)
+  #!(True if blank)
+  #Position_taken? False
 end
 
 # Define your WIN_COMBINATIONS constant
@@ -36,5 +38,11 @@ def won?(board)
 end
 
 def full?(board)
-  board.all?{|i| position_taken?(board, i.to_i)}
+    #check each element of the board
+    #if there is an element which has nil or " ", full? should return false. Otherwise true
+    counter = 0
+    board.all? do |i|
+      return false if !position_taken?(board,counter)
+      counter += 1
+    end
 end
