@@ -71,3 +71,14 @@ def over?(board)
     return false
   end
 end
+
+def winner(board)
+  #return "X" if X wins
+  #return "O" if O wins
+  winner = nil
+  win_result = won?(board)
+  if win_result != nil
+    winner = board[win_result[0]]
+  end
+  winner
+end
