@@ -46,3 +46,16 @@ def full?(board)
       counter += 1
     end
 end
+
+def draw?(board)
+  if full?(board) && !won?(board)
+    return true
+  elsif !full?(board) && !won?(board)
+    return false
+  else won?(board)
+    return false
+  end
+  #return true if board full AND not won
+  #return false if board is not full AND not won
+  #return false if board is won
+end
