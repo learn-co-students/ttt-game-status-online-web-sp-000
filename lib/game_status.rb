@@ -49,9 +49,7 @@ end
 
 
 def draw?(board)
-  if !board.all?(" ") && !won?(board)
-    true
-  end
+  true if !board.all?(" ") && !won?(board)
 end
 
 
