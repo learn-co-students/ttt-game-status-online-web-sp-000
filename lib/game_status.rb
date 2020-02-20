@@ -56,11 +56,43 @@ end
 
 #full?
 def full?(board)
+  board.all?{|move| move = "X" || move = nil}
 end
 
+#draw?
+def draw?(board)
+  if !won?(board) && full?(board)
+    return true
+  elsif !won?(board) && !full?(board)
+    return true 
+  else won?(board) 
+    return false 
+  end 
+end
 
-
-
+#over?
+def over?(board)
+  if won?(board)
+    return true 
+    elsif draw?(board)
+      return true 
+    elsif full?(board) 
+      return true
+    else 
+      return false
+    end
+  end
+  
+#winner?
+def winner(board)
+  if board.each{|winner| winner = "X"}
+    "X"
+  elsif board.each{|winner| winner = "O"}
+    "O"
+  else board.none?{|no_winner| no_winner = nil}
+    nil 
+  end
+end
 
 
 
