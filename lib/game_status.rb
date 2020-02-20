@@ -86,7 +86,7 @@ def winner(board)
 winner = won?(board)
   if winner.first == 0 || winner.first == 1 || winner.first == 2 || winner.first == 3 || winner.first == 6
     board[winner.first]
-  else 
+  else winner = false
     return nil 
   end
 end
