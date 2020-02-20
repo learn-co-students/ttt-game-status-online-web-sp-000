@@ -76,23 +76,19 @@ def over?(board)
     return true 
     elsif draw?(board)
       return true 
-    elsif full?(board) 
+    else full?(board) 
       return true
-    else 
-      return false
     end
   end
   
 #winner?
 def winner(board)
-  if board.each{|winner| winner = "X"}
-    "X"
-  elsif board.each{|winner| winner = "O"}
-    return "O"
-  else board.none?{|no_winner| no_winner = nil}
-    nil 
+winner = won?(board)
+  if winner.first == 0 || winner.first == 1 || winner.first == 2 || winner.first == 3 || winner.first == 6
+    board[winner.first]
+  else 
+    return nil 
   end
 end
-
 
 
