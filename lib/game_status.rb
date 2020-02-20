@@ -88,7 +88,7 @@ def winner(board)
   if board.each{|winner| winner = "X"}
     "X"
   elsif board.each{|winner| winner = "O"}
-    "O"
+    return "O"
   else board.none?{|no_winner| no_winner = nil}
     nil 
   end
