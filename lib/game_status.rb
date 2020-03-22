@@ -30,18 +30,21 @@ def full?(board)
 end
 
 def draw?(board)
-  if won?(board) == false && full?(board) == true 
+  if won?(board) == nil && full?(board) == true 
     return true
   elsif won?(board) == true 
     return false
   end
 end
 
-  
-  
-#def over?
+def over?(board)
+  if won?(board) != nil || full?(board) == true 
+    return true 
+  end
+end
 
-
-#def winner(board)
-  #return "X" or "O" given the game is a winning board
-#end
+def winner(board)
+  if winning_combo = won?(board)
+    board[winning_combo[0]] 
+  end
+end
