@@ -1,4 +1,7 @@
-# Helper Method
+board1 = ["X", "O", "X", "O", "O", "X", "X", "X", "O"]
+board2 = [" ", "O", " ", "O", "O", "X", "X", "X", "O"]
+board3 = ["X", "X", "X", " ", " ", " ", " ", " ", "O"]
+
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
@@ -17,6 +20,7 @@ WIN_COMBINATIONS = [
 
 def won?(board)
   win_check =
+
   WIN_COMBINATIONS.each do |win_combination|
 
     position_1 = win_combination[0]
@@ -42,40 +46,28 @@ end
 
 def draw?(board)
   #returns true if the board is full but not won
-  if won?(board) == true
+  if full?(board) == true && won?(board) != 0
+    return true
+  #returns false if the board is not full and not won
+elsif full?(board) != 0  && won?(board) != 0
     return false
-
-  elsif won?(board) == false
-    if full?(board) == true
-      return true
-
-    elsif full?(board) == false
-      return false
-    end
-  end
-end
-
-def over?(board)
-  if draw?(board) == true
-    return true
-  elsif full?(board) == true
-    return true
-  elsif won?(board) != false
-    return true
+  #false if the board is won
   else
     return false
   end
 end
 
-def winner(board)
+def winner?(board)
   #return the token that has won the board
   winning_array = []
 
   if won?(board) == false
     return nil
   elsif won?(board) != false
-    winning_array = won?(board)
+    winning_array << won?(board)
     puts winning_array.inspect
-    return board[winning_array[0]]
+    return board[winning_array[0][0]]
   end
 end
+
+winner?(board3)
