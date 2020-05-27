@@ -16,13 +16,24 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  WIN_COMBINATIONS.each do |win_check|
-    if board[win_check[0]] == "X" && board[win_check[1]] == "X" && board[win_check[2]] == "X"
-      true
-    elsif board[win_check[0]] == "O" && board[win_check[1]] == "O" && board[win_check[2]] == "O"
-      true
-    else
-      false
+  WIN_COMBINATIONS.detect do |win_combination|
+    if board[win_combination[0]] == "X" && board[win_combination[1]] == "X" && board[win_combination[2]] == "X"
+      return true
+    elsif board[win_combination[0]] == "O" && board[win_combination[1]] == "O" && board[win_combination[2]] == "O"
+      return true
     end
+
   end
 end
+
+def full?(board)
+  i = 0
+
+  board.length.times do
+    if position_taken?(board, i) == true
+      i += 1
+    else
+      return false
+    end
+    return true
+  end
