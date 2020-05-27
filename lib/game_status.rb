@@ -18,9 +18,9 @@ WIN_COMBINATIONS = [
 def won?(board)
   WIN_COMBINATIONS.detect do |win_combination|
     if board[win_combination[0]] == "X" && board[win_combination[1]] == "X" && board[win_combination[2]] == "X"
-      return true
+      true
     elsif board[win_combination[0]] == "O" && board[win_combination[1]] == "O" && board[win_combination[2]] == "O"
-      return true
+      true
     end
 
   end
@@ -28,12 +28,43 @@ end
 
 def full?(board)
   i = 0
-
-  board.length.times do
-    if position_taken?(board, i) == true
-      i += 1
-    else
-      return false
-    end
-    return true
+  
+  while position_taken?(board, i) != false
+    i += 1
   end
+  
+  if i == board.length()
+    return true
+  else
+    return false
+  end
+end
+
+def draw?(board)
+  
+  if full?(board) && !won?(board)
+    true
+  else
+    false
+  end
+  
+end
+
+def over?(board)
+  if full?(board) || won?(board) || draw?(board)
+    true
+  end
+end
+
+def winner(board)
+  
+  winner_board = board.select{|move| move == "X"}
+  
+  if won?(winner_board)
+    "X"
+  elsif !won?(board)
+    nil
+  else
+    "O"
+  end
+end
