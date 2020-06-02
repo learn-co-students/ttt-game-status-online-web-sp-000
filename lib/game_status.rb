@@ -24,3 +24,15 @@ end
 def full?(board)
   board.all? { |index| index== "X" || index == "O"}
 end
+
+def draw?(board)
+  !won?(board) && full?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board)
+end
+
+def winner(board)
+  won?(board) && board[won?(board)[0]]
+end
