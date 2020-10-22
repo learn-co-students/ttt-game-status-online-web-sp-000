@@ -16,11 +16,8 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  if board.all?{|index| index = " "} == true
-    return false
-  end
 
-WIN_COMBINATIONS.each do 
+WIN_COMBINATIONS.each do |win_combination|
   win_index_1 = win_combination[0]
   win_index_2 = win_combination[1]
   win_index_3 = win_combination[2]
@@ -30,13 +27,14 @@ WIN_COMBINATIONS.each do
   position_3 = board[win_index_3] 
  
   if position_1 == "X" && position_2 == "X" && position_3 == "X"
-    return win_combination # return the win_combination indexes that won.
+    return win_combination 
   elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
     return win_combination
   else
     false
   end
-  if board.any?{|index| index == " "} == false
+end
+  if board.all?{|index| index == " "} == false
   return false
 end
 end
@@ -69,16 +67,16 @@ def over?(board)
   end
 end
 
-def winner(board)
-  if won?(board) == nil
+def winner (board)
+  index = []
+  index = won?(board)
+  if index == false
     return nil
-  end
-  index = won?(board)[0]
-  if board[index] == "X"
-    return "X"
-  elsif board[index] == "O"
-    return "O"
   else
-    return nil
+    if board[index[0]] == "X"
+      return "X"
+    else
+      return "O"
+    end
   end
 end
