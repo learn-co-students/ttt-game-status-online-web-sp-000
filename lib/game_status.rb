@@ -12,7 +12,7 @@ WIN_COMBINATIONS = [
   [2,4,6], # second diagonal
   [0,3,6], # Horizontal 1
   [1,4,7], # Hortizontal 2
-  [2,5,8]
+  [2,5,8]  # Horizontal 3
 ]
 
 def won?(board)
@@ -39,12 +39,14 @@ WIN_COMBINATIONS.each do
   if board.any?{|index| index == " "} == false
   return false
 end
+end
 
 def full?(board)
   if board.any?{|index| index == " "} == false
   return true
 else
   return false
+  end
 end
 
 def draw?(board)
@@ -79,5 +81,4 @@ def winner(board)
   else
     return nil
   end
-end
 end
