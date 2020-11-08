@@ -6,9 +6,6 @@ def position_taken?(board, index)
   end
 end 
 
-
-
-# Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS = [ 
   [0, 1, 2],  
   [3, 4, 5],
@@ -20,73 +17,73 @@ WIN_COMBINATIONS = [
   [6, 4, 2],     
   ]
   
- 
    
-def won?(board)
-  if board == [" ", " ", " ", " ", " ", " ", " ", " ", " "] 
-    return false 
-  end 
-    
-  
-  
+
   WIN_COMBINATIONS.each do |array|
    position_1 = array[0]
    position_2 = array[1]
    position_3 = array[2]
-   position_4 = array[3]
-   position_5 = array[4]
-   position_6 = array[5]
-   position_7 = array[6]
-   position_8 = array[7]
-   position_9 = array[8]
    
-   if board[position_1] == "X" && board[position_2] == "X" && board[position_3] == "X"|| board[position_1] == "O" && board[position_2] == "O" && board[position_3] == "O" 
-     then return array[0]
-     end 
-     if board[position_4] == "X" && board[position_5] == "X" && board[position_6] == "X" ||  board[position_4] == "O" && board[position_5] == "O" && board[position_6] == "O" 
-       return[array_1]
-     end 
-     if array.include?"nil"
-    revolve = array.to_i 
+    if board[position_1] == "X" && board[position_2] == "X" && board[position_3] == "X"|| board[position_1] == "O" && board[position_2] == "O" && board[position_3] == "O" 
+     then return array
+    end  
+  false 
+end 
+
+
+ def won?(board)
+  if board == [" ", " ", " ", " ", " ", " ", " ", " ", " "] || board == nil
+    return false 
+  elsif board[position_1] == "X" || board[position_1] == "O" 
+    over?(board)
+    board_position
   end 
-     
-     
-      if board[position_7] == "X" || board[position_7] == "O" 
-        return array[7]
-      end 
-      if board[position_8] == "X" || board[position_8] == "O"
-      return array[8]  
-      end 
-    false 
-  end 
+  
+ 
  
   
-def full?(board, index)
-  if !board[index].include " " 
-    puts "Board is full - please start another game" 
+def full?(board) 
+  board.each do |combo|
+  if board.include? " " 
+ # binding.pry
+   in_progress_board 
+    else 
+      puts "Board is full - please start another game"  
+    draw?(board) 
+    over?(board)
     end  
   end 
+end 
 
-# def draw?(board, index)
-#same as full?
+
+def draw?(board)
+  puts "Game was a draw."
+end 
+
+
+def in_progress_board(board)
+  puts "Please continue game."
+end 
+
+def over?(board)
   
-# end 
+  puts "Another game?"
+end   
 
-# def incomplete_board
-  
-# end 
-
-# def over?
-  
-# end  
-
-def winner(board, index)
-  if board[index] = "X"
+def winner(board)
+  if board[position_1] =="X"
   puts "Winner is X"
-  else 
+  #binding.pry 
+  elsif board[position_2] == "O"
   puts "Winner is O"
+else puts "No winner."
   end 
-end 
-end 
+ end 
+ end 
+ 
+ 
 
+def in_progress(board)
+  puts "Please take another turn."
+ end  
  
