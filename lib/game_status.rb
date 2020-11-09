@@ -1,57 +1,62 @@
-require "pry"
-#binding.pry 
-
-
-WIN_COMBINATIONS = [ 
-  [0, 1, 2],  
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [6, 4, 2],     
-  ]
-  
-  
-def position_taken?(board)
-    if !board == nil? || board == " "
+    require "pry"
+    #binding.pry 
+    
+    
+    WIN_COMBINATIONS = [ 
+      [0, 1, 2],  
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [6, 4, 2],     
+      ]
+      
+      
+    def position_taken?(board)
+        if !board == nil? || !board == " "
+        true 
+        end 
     end 
-end 
-   
-
-def won?(board)
-    WIN_COMBINATIONS.detect do |combo|
-    board[combo[0]] == board[combo[1]] &&
-    board[combo[1]] == board[combo[2]] &&
-    position_taken?(board) 
-    elsif board == 
-end 
-  
-
-  
-  
-   
-def full?(board) 
-  board.all?{|token| token == "X" || token == "O"} 
-end
-
-
-def draw?(board)
-  full?(board) && !won?(board)
-end
-
-
-def over?(board)
-  won?(board) || full?(board)
-end
-
-
-def winner(board)
-  if winning_combo = won?(board)
-    board[winning_combo.first]
-  elsif winning(board) == nil
-  false 
-  end 
-end   
-end  
+    
+    
+      def won?(board)
+       WIN_COMBINATIONS.detect do |array|
+       position_1 = array[0]
+       position_2 = array[1]
+       position_3 = array[2]
+      
+      if position_1 == "X" || position_2 == "X" || position_3 == "X"|| position_1 == "O" || position_2 == "O" || position_3 == "O" 
+          return array
+    elsif WIN_COMBINATIONS.all == " "
+          return false 
+        end
+      end 
+          
+         
+    def full?(board) 
+      board.all?{|token| token == "X" || token == "O" || board.all? == " "}
+    end
+    
+    
+    def draw?(board)
+      if full?(board) && !won?(board)
+      return true  
+      elsif !full(board) && !won?(board)
+      return false 
+    end
+    end 
+    
+    
+    def over?(board)
+      won?(board) || full?(board)
+    end 
+    
+    
+    def winner(board)
+        puts array 
+      false 
+      end 
+    end
+    
