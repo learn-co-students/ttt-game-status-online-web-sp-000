@@ -1,10 +1,6 @@
 require "pry"
+#binding.pry 
 
-
-def position_taken?(board, index)
-  if !(board[index] == nil? || board[index] == " ")
-  end
-end 
 
 WIN_COMBINATIONS = [ 
   [0, 1, 2],  
@@ -17,73 +13,45 @@ WIN_COMBINATIONS = [
   [6, 4, 2],     
   ]
   
-   
-
-  WIN_COMBINATIONS.each do |array|
-   position_1 = array[0]
-   position_2 = array[1]
-   position_3 = array[2]
-   
-    if board[position_1] == "X" && board[position_2] == "X" && board[position_3] == "X"|| board[position_1] == "O" && board[position_2] == "O" && board[position_3] == "O" 
-     then return array
-    end  
-  false 
+  
+def position_taken?(board)
+    if !board == nil? || board == " "
+    end 
 end 
+   
 
+def won?(board)
+    WIN_COMBINATIONS.detect do |combo|
+    board[combo[0]] == board[combo[1]] &&
+    board[combo[1]] == board[combo[2]] &&
+    position_taken?(board) 
+    elsif board == 
+end 
+  
 
- def won?(board)
-  if board == [" ", " ", " ", " ", " ", " ", " ", " ", " "] || board == nil
-    return false 
-  elsif board[position_1] == "X" || board[position_1] == "O" 
-    over?(board)
-    board_position
-  end 
   
- 
- 
   
+   
 def full?(board) 
-  board.each do |combo|
-  if board.include? " " 
- # binding.pry
-   in_progress_board 
-    else 
-      puts "Board is full - please start another game"  
-    draw?(board) 
-    over?(board)
-    end  
-  end 
-end 
+  board.all?{|token| token == "X" || token == "O"} 
+end
 
 
 def draw?(board)
-  puts "Game was a draw."
-end 
+  full?(board) && !won?(board)
+end
 
-
-def in_progress_board(board)
-  puts "Please continue game."
-end 
 
 def over?(board)
-  
-  puts "Another game?"
-end   
+  won?(board) || full?(board)
+end
+
 
 def winner(board)
-  if board[position_1] =="X"
-  puts "Winner is X"
-  #binding.pry 
-  elsif board[position_2] == "O"
-  puts "Winner is O"
-else puts "No winner."
+  if winning_combo = won?(board)
+    board[winning_combo.first]
+  elsif winning(board) == nil
+  false 
   end 
- end 
- end 
- 
- 
-
-def in_progress(board)
-  puts "Please take another turn."
- end  
- 
+end   
+end  
