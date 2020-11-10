@@ -23,21 +23,25 @@
     
       def won?(board)
        WIN_COMBINATIONS.detect do |array|
-       position_1 = array[0]
-       position_2 = array[1]
-       position_3 = array[2]
-      
-      if position_1 == "X" || position_2 == "X" || position_3 == "X"|| position_1 == "O" || position_2 == "O" || position_3 == "O" 
-          return array
-    elsif WIN_COMBINATIONS.all == " "
-          return false 
-        end
+       index_1 = array[0]
+       index_2 = array[1]
+       index_3 = array[2]
+     
+     position_1 = array[0]
+     position_2 = array[1]
+     position_3 = array[2]
+     
+        
+      if position_1 == position_2 && position_2 == position_3 && (position_1 == "X" || position_1 == "O")
       end 
-          
-         
+      return array
+      end 
+  end  
+
+     
     def full?(board) 
       board.all?{|token| token == "X" || token == "O" || board.all? == " "}
-    end
+    end 
     
     
     def draw?(board)
@@ -55,8 +59,8 @@
     
     
     def winner(board)
-        puts array 
-      false 
-      end 
-    end
+        array  
+    end 
+    
+     
     
