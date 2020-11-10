@@ -27,15 +27,16 @@
        index_2 = array[1]
        index_3 = array[2]
      
-     position_1 = array[0]
-     position_2 = array[1]
-     position_3 = array[2]
+     position_1 = board[index_1]
+     position_2 = board[index_2]
+     position_3 = board[index_3]
      
         
       if position_1 == position_2 && position_2 == position_3 && (position_1 == "X" || position_1 == "O")
-      end 
       return array
       end 
+     end 
+     return false 
   end  
 
      
@@ -59,7 +60,10 @@
     
     
     def winner(board)
-        array  
+         winning_value = won?(board)
+         if winning_value 
+           board[winning_value[0]]
+         end 
     end 
     
      
