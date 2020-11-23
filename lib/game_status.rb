@@ -44,8 +44,19 @@ end
 
 
 def over?(board)
-draw?(board) || won?(board) || full?(board)
+WIN_COMBINATIONS.each do |win_combo|
+  if !full?(board) && won?(board) == win_combo 
+    return true
+  elsif draw?(board)
+    return true
+  elsif full?(board)
+    return true
+  else
+    return false
+  end
+ end
 end
+
 
 
 def winner(board)
