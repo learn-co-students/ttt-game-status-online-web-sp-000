@@ -1,4 +1,4 @@
-# Helper Method
+require "pry"
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
@@ -9,15 +9,13 @@ def won?(board)
     x_win = board[win_combo[0]] == "X" && board[win_combo[1]] == "X" && board[win_combo[2]] == "X"
     o_win = board[win_combo[0]] == "O" && board[win_combo[1]] == "O" && board[win_combo[2]] == "O"
     empty_board = board == [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-    draw_board = !x_win && !o_win && full?(board)
     if x_win
       return win_combo
     elsif o_win
       return win_combo
-    elsif draw_board || empty_board
-      return nil
     end
   end
+  nil
 end
 
 
@@ -29,34 +27,30 @@ end
 
 
 def draw?(board)
-  x_diag_1 = board[WIN_COMBINATIONS[6][0]] == "X" && board[WIN_COMBINATIONS[6][1]] == "X" && board[WIN_COMBINATIONS[6][2]] == "X"
-  x_diag_2 = board[WIN_COMBINATIONS[7][0]] == "X" && board[WIN_COMBINATIONS[7][1]] == "X" && board[WIN_COMBINATIONS[7][2]] == "X"
-  o_diag_1 = board[WIN_COMBINATIONS[6][0]] == "O" && board[WIN_COMBINATIONS[6][1]] == "O" && board[WIN_COMBINATIONS[6][2]] == "O"
-  o_diag_2 = board[WIN_COMBINATIONS[7][0]] == "O" && board[WIN_COMBINATIONS[7][1]] == "O" && board[WIN_COMBINATIONS[7][2]] == "O"
-  if x_diag_1 || x_diag_2 || o_diag_1 || o_diag_2
-    return false
-  elsif !won?(board) && full?(board)
-    return true
-  else
-    return false
- end
+full?(board) && !won?(board)
 end
 
 
 def over?(board)
-WIN_COMBINATIONS.each do |win_combo|
-  if !full?(board) && won?(board) == win_combo 
-    return true
-  elsif draw?(board)
-    return true
-  elsif full?(board)
-    return true
-  else
-    return false
-  end
- end
+won?(board) || draw?(board)
 end
 
+
+def won_won?(board)
+  WIN_COMBINATIONS.each do |win_combo|
+    x_win = board[win_combo[0]] == "X" && board[win_combo[1]] == "X" && board[win_combo[2]] == "X"
+    o_win = board[win_combo[0]] == "O" && board[win_combo[1]] == "O" && board[win_combo[2]] == "O"
+    empty_board = board == [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    draw_board = !x_win && !o_win && full?(board)
+    if x_win == true
+      return true
+    elsif o_win == true
+      return true
+    elsif draw_board || empty_board
+      return nil
+    end
+  end
+end
 
 
 def winner(board)
