@@ -87,7 +87,7 @@ def over?(board)
 end
 
 def winner(board)
-  win_combination = won?(board) # => [pos_1, pos_2, pos_3]
+  win_combination = won?(board) 
   if win_combination != nil
     winning_position = win_combination[0]
     return board[winning_position]
