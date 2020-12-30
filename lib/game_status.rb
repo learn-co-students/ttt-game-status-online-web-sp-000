@@ -16,11 +16,11 @@ WIN_COMBINATIONS = [
 ]
 
 
-#board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+board = ["X", "X", "X", " ", " ", " ", " ", " ", " "]
 def won?(board)
   board.any?{|i| i == "X" || i == "O"}
-  #board.count("X") == board.count("O")
-
+  board.each_index.select{|i| board[i] == "X"}
+  puts "#{WIN_COMBINATIONS[1].all?{|j| board[j] == "X"}}"
 end
 
-#won?(board)
+won?(board)
