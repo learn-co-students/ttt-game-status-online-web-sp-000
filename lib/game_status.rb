@@ -15,12 +15,42 @@ WIN_COMBINATIONS = [
   [2,4,6]
 ]
 
-
-board = ["X", "X", "X", " ", " ", " ", " ", " ", " "]
 def won?(board)
-  board.any?{|i| i == "X" || i == "O"}
-  board.each_index.select{|i| board[i] == "X"}
-  puts "#{WIN_COMBINATIONS[1].all?{|j| board[j] == "X"}}"
+  winning_combo = [""]
+  (WIN_COMBINATIONS.count).times{ |i|
+        (WIN_COMBINATIONS[i].all?{|j| (board[j] == "X") || (board[j] == "O")}) == true ? (winning_combo = WIN_COMBINATIONS[i]) : nil
+      }
+  winning_combo
 end
 
-won?(board)
+def full?(board)
+ board.detect{|i| i == " "} ? false : true
+end
+
+def draw?(board)
+  winning_combo == [""] ? false : true
+end
+
+def over?(board)
+
+end
+
+def winner(board)
+
+end
+
+#  if (board.any?{|i| i == "X" || i == "O"}) == true  #checks if board is empty
+#    (WIN_COMBINATIONS.count).times{ |i|
+#      (WIN_COMBINATIONS[i].all?{|j| board[j] == "X"}) == true ? WIN_COMBINATIONS[i] : nil
+#    }
+#  else
+#    false
+#  end
+
+#won?(board)
+
+#def won?(board)
+  #board.any?{|i| i == "X" || i == "O"}
+  #board.each_index.select{|i| board[i] == "X"}
+  #puts "#{WIN_COMBINATIONS[1].all?{|j| board[j] == "X"}}"
+#end
