@@ -45,7 +45,7 @@ false #returns false if no winning combination found
 end
 
 def full?(board)
- board.detect{|i| (i == " ") || (i == "")} ? false : true #If no blank spaces are found return true
+ board.all?{|i| (i == "X") || (i == "O")} #? false : true #If no blank spaces are found return true
 end
 
 def draw?(board)
