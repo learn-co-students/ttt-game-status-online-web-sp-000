@@ -54,10 +54,10 @@ end
 
 def winner(board)
   combo = won?(board)
-  if combo == [0,4,8]
-    return "X"
-    elsif combo == [1,4,7]
-    return "O"
+  if combo 
+    index1 = combo[0]
+    space1 = board[index1]
+    return space1
   end
 end
 
