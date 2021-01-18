@@ -14,3 +14,29 @@ WIN_COMBINATIONS = [
   [0,4,8],
   [6,4,2]
 ]
+
+def won?(board)
+  WIN_COMBINATIONS.detect do |win|
+    board[win[0]] == board[win[1]] &&
+    board[win[1]] == board[win[2]] &&
+    position_taken?(board, win[0])
+  end
+end
+
+def full?(board)
+  board.all?{|index| index == "X" || index == "O"}
+end
+
+def draw?(board)
+  full?(board) && !won?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board)
+end
+
+def winner(board)
+  if winning_combo = won?(board)
+    board[winning_combo.first]
+  end
+end
