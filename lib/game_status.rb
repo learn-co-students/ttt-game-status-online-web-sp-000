@@ -138,4 +138,3 @@ def full?(board)
       end
    end
  end
- 
