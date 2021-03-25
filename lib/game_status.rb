@@ -21,7 +21,7 @@ def won?(board)
     #if position_1 == position_2 && position_2 == position_3
      # position_taken?(board, position_1.to_i) == true 
      # return win_combination
-   # end filter_parameter_logging
+   # end
     
     if position_taken?(board, win_index_1) == ("X" || "O")
       position_1 == position_2 && position_2 == position_3
