@@ -40,3 +40,10 @@ end
 def over?(board)
   draw?(board) || full?(board) || won?(board)
 end
+
+def winner(board)
+  if won?(board)
+    winner = won?(board)[0]
+    return 
+  end
+end
