@@ -24,3 +24,19 @@ def won?(board)
     end
       return false 
 end
+
+def full?(board)
+  board.all? {|index| index != (nil || " " || "")}
+end
+
+def draw?(board)
+  if full?(board) && !won?(board)
+    return true 
+  else
+    return false 
+  end
+end
+
+def over?(board)
+  draw?(board) || full?(board) || won?(board)
+end
