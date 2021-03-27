@@ -33,7 +33,17 @@ def won?(board)
 end
 
 def full(board)
-  if full_board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+  counter = 0
+  board.each do |element|
+  if (element == "X" || element == "O")
+      counter += 1
+    else
+      # do nothing
+    end
+  end
+  if counter == 9
     return true
+  else
+    return false
   end
 end
