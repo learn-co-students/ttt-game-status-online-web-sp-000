@@ -71,3 +71,15 @@ def winner(board)
     nil
   end
 end
+
+
+def play
+  until over?(board) == true
+  turn(board)
+end
+if draw?(board) == true
+  puts "Cat's Game!"
+  elsif winner(board) != nil
+  puts "Congratulations #{winner(board)}!"
+end
+end
