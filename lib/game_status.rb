@@ -19,51 +19,36 @@ WIN_COMBINATIONS = [
 
 
 def won?(board)
-  WIN_COMBINATIONS.each do |win_combination|
-    
-    win_index_1 = win_combination[0]
-    win_index_2 = win_combination[1]
-    win_index_3 = win_combination[2]
-    
-    position_1 = board[win_index_1]
-    position_2 = board[win_index_2]
-    position_3 = board[win_index_3]
-    
-
-    if (board[position_1]) == "X" &&(board[position_2]) == "X" && (board[position_3]]) == "X" 
-      return win_combination
-      elsif (board[position_1]) == "O" && (board[position_2) == "O" && (board[position_3) == "O" 
-      return win_combination 
+  WIN_COMBINATIONS.each do |wincombo| 
+    if (board[wincombo[0]]) == "X" && (board[wincombo[1]]) == "X" && (board[wincombo[2]]) == "X" 
+      return wincombo 
+      elsif (board[wincombo[0]]) == "O" && (board[wincombo[1]]) == "O" && (board[wincombo[2]]) == "O" 
+      return wincombo
     end
   end
 end
 
-
-def full(board)
-  board.all? do |moves|
-    if moves == "X" or moves == "O"
-      return 
-    
-  end
+def full?(board)
+  
+  
 end
-    
-    
-    
-    
-    
-    
-    
-    # win_index_1 = win_combination[0]
-    # win_index_2 = win_combination[1]
-    # win_index_3 = win_combination[2]
-    
-    # position_1 = board[win_index_1]
-    # position_2 = board[win_index_2]
-    # position_3 = board[win_index_3]
-    
-    # if position_1 == "X" && position_2 =="X" && position_3 == "X"
-    #   return win_combination
-    # else
-    #   FALSE
-    # end
 
+def draw?(board)
+  
+  
+end
+
+
+def over?(board)
+  
+  
+end
+
+def winner(board) 
+  
+end
+
+
+    
+    
+    
