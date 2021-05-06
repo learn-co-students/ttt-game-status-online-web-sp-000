@@ -80,8 +80,8 @@ def won?(board)
 end
 
 def full?(board)
-  binding.pry
-  #draw?(board) || board.empty? 
+  #binding.pry
+  board.all? { |token| token== "X" || token=="O"}
 end
 
 def draw?(board)
@@ -93,8 +93,9 @@ def over?(board)
 end
 
 def winner(board)
+  #binding.pry
   if won?(board)
-    return board[win_index_1]
+    return board[won?(board)[0]]
   end
 end
   
