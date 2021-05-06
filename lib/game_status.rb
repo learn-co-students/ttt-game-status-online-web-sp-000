@@ -13,11 +13,9 @@ def won?(board)
       position_taken?(board, win_index)
       won?(board)
       #we just want the winning array to print or false/nil to print if not winning
+      #maybe put win_index array into position_taken and run true false
       #win_index.each do |position|
-  #win_index_1 = win_combination[0]
-  #win_index_2 = win_combination[1]
-    #win_index_3 = win_combination[2]
-    
+
    # position_1 = board[win_index_1]
    # position_2 = board[win_index_2]
    # position_3 = board[win_index_3]
