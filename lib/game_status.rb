@@ -93,9 +93,7 @@ end
 
 def winner(board)
   if won?(board).any? |"X"|
-    return "X"
-  else won?(board).any? |"O"|
-    return "O"
+    return board[won?(board)[0]]
   end
 end
   
