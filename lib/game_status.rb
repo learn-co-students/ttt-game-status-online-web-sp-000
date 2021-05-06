@@ -12,7 +12,7 @@ def won?(board)
     win_combination.each do |win_index|
       position_taken?(board, win_index)
       won?(board)
-      #WIN_COMBINATIONS we want the child to be separated and put into the board
+      #we just want the winning array to print or false/nil to print if not winning
       #win_index.each do |position|
   #win_index_1 = win_combination[0]
   #win_index_2 = win_combination[1]
