@@ -92,8 +92,8 @@ def over?(board)
 end
 
 def winner(board)
-  if won?(board).any? |"X"|
-    return board[won?(board)[0]]
+  if won?(board)
+    return board[win_index_1]
   end
 end
   
