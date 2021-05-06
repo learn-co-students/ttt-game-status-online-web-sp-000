@@ -84,17 +84,18 @@ def full?(board)
 end
 
 def draw?(board)
-  if won?(board) 
-  else full?(board) 
-  end
+  full?(board) && !won?(board)
 end
 
 def over?(board)
-  if won?(board) || draw?(board)
-  else full?(board)
-  end
+  won?(board) || draw?(board) || full?(board)
 end
 
 def winner(board)
+  if won?(board).any? |"X"|
+    return "X"
+  else won?(board).any? |"O"|
+    return "O"
+  end
 end
   
