@@ -1,3 +1,5 @@
+require "pry"
+
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -71,16 +73,15 @@ def won?(board)
       
     elsif board[win_index_1] == "O" && board[win_index_2] == "O" && board[win_index_3] == "O"
       return win_combination
-    
-    else 
-      return false
-    
+      
     end
   end
+  return false
 end
 
 def full?(board)
-  board.empty? 
+  binding.pry
+  #draw?(board) || board.empty? 
 end
 
 def draw?(board)
