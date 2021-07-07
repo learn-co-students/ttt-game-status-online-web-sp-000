@@ -1,4 +1,4 @@
-RSpec.configure do |config|
+dsRSpec.configure do |config|
   config.order = :default
 end
 
